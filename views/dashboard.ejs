@@ -10,20 +10,20 @@
 
 <body>
   <div class="dashboard-container">
-    <%- include('./Reused/dashBoardHeader') %>
-      <div class="dashboard-mid">
-        <div class="dashboard-second">
+    <%- include("./partials/header.ejs") %>
+      <div class="dashboard-bottom">
+        <div class="dashboard1">
           <h1>Hey , John</h1>
           <a class="btn new-note-button" href="/create">+ New Note</a>
         </div>
         <a href="/update" class="card-container">
-          <% NotesData.forEach(element=> { %>
+          <% NotesData.forEach((element)=> { %>
             <div class="card-data">
               <h4>
-                <%= element.title %>
+                <%= element?.title %>
               </h4>
               <p>
-                <%= element.description %>
+                <%= element?.description %>
               </p>
             </div>
             <% }); %>

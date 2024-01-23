@@ -1,29 +1,38 @@
 const express = require("express");
-const cors = require("cors");
-const methodOverride = require("method-override")
 const app = express();
-let NotesData = require("./dbs/Data")
-const port = 3000;
+let NotesData = require("./dbs/Data");
 
-// Enable CORS
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+
+
+
 app.use(express.static("public"));
-app.use(methodOverride("_method"))
-app.set("views engine", "ejs")
-
-
 app.set("views engine", "ejs");
 
+
+// routers =>
 app.get("/dashboard", (req, res) => {
-  res.render("dashboard.ejs", { NotesData })
+  res.render("dashboard.ejs", { NotesData });
 });
 
+app.get("/create", (req, res) => {
+  res.render("create.ejs");
+})
+
+app.get("/update", (req, res) => {
+  res.render("update.ejs");
+})
 
 
 
 
-app.listen(port, () => {
-  console.log("Server is live on -> ", port);
+
+
+
+
+
+
+
+// port =>
+app.listen(3000, () => {
+  console.log("Server is live on -> ", 3000);
 });

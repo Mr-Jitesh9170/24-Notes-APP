@@ -1,4 +1,4 @@
-let NotesData = [
+ let NotesData = [
   {
     title: "In this tutorial, we are going to create a simple, accessible and responsive navigation menu bar and side menu using TailwindCSS v3.0 and Alpine.js. For those of you who would prefer a Video Tutorial you can watch it here.",
     description: "Let's look into JS animations",
@@ -53,5 +53,8 @@ let NotesData = [
   }
 ]
 
+
+
+ 
 
 module.exports = NotesData;

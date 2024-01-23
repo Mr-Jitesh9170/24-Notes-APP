@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update</title>
+  <link rel="stylesheet" href="./notes.css">
+
+</head>
+
+<body>
+  <div class="update-container">
+    <%- include("./partials/header.ejs") %>
+      <div class="update-bottom">
+        <div class="update1">
+          <a href="/dashboard">dashboard</a> /
+          <span>Update Note</span>
+        </div>
+        <div class="update2">
+          <h3>View Note</h3>
+          <button class="delet-btn">delete</button>
+        </div>
+        <div class="update3">
+          <input type="text" name="title" placeholder="Title ...">
+          <textarea name="description" placeholder="Take a note ...." cols="30" rows="10"></textarea>
+        </div>
+        <button class="btn new-note-button">+ Update</button>
+      </div>
+  </div>
+</body>
+
+</html>
