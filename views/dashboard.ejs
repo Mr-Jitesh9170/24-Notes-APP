@@ -13,23 +13,24 @@
     <%- include("./partials/header.ejs") %>
       <div class="dashboard-bottom">
         <div class="dashboard1">
-          <h1>Hey , John</h1>
+          <h1>Hey , Buddy!</h1>
           <a class="btn new-note-button" href="/create">+ New Note</a>
         </div>
-        <a href="/update" class="card-container">
+        <div class="card-container">
           <% NotesData.forEach((element)=> { %>
-            <div class="card-data">
+            <a href="/update<%=element._id%>" class="card-data">
               <h4>
                 <%= element?.title %>
               </h4>
               <p>
-                <%= element?.description %>
+                <%= element?.des %>
               </p>
-            </div>
+            </a>
             <% }); %>
-        </a>
+        </div>
       </div>
   </div>
+ 
 </body>
 
 </html>

@@ -17,6 +17,7 @@
 .dashboard-container,
 .create-container,
 .update-container {
+  position: relative;
   min-height: 100vh;
   background-color: var(--background);
 }
@@ -43,19 +44,6 @@ h3 {
   box-shadow: 0px 0px 2px red;
 }
 
-.btn {
-  padding: var(--button-padding);
-  border: 1px solid rgb(31, 26, 26);
-  text-decoration: none;
-  border-radius: var(--button-radious);
-}
-
-.btn:hover {
-  background-color: var(--button-background);
-  color: #fff;
-  border: none;
-}
-
 .dashboard-bottom,
 .create-bottom,
 .update-bottom {
@@ -73,23 +61,38 @@ h3 {
   justify-content: space-between;
 }
 
-.card-container {
+.btn {
+  width: fit-content;
+  font-weight: 550;
+  border: none;
+  cursor: pointer;
+  padding: var(--button-padding);
   text-decoration: none;
+  border-radius: var(--button-radious);
+  box-shadow: 0px 0px 2px black;
+}
+
+.btn:hover {
+  background-color: var(--button-background);
+  color: #fff;
+}
+
+.card-container {
   display: flex;
-  justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
 }
 
 .card-data {
+  text-decoration: none;
   padding: 10px 15px;
   width: 23.6%;
   height: 140px;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--button-background);
   box-sizing: 0px 0px 5px red;
   background-color: #fff;
+  box-shadow: 0px 0px 3px rgb(45, 129, 19);
 }
 
 .card-data p {
@@ -113,22 +116,21 @@ h3 {
 /* =============================== Create ===================== */
 .create3,
 .update3 {
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
 
 .create3 :nth-child(1),
 .update3 :nth-child(1) {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .create3 :nth-child(2),
 .update3 :nth-child(2) {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .create3 input,
@@ -141,16 +143,110 @@ textarea {
 }
 
 /* =============================== Update ===================== */
-.delet-btn {
-  background-color: red;
-  padding: var(--button-padding);
-  color: #fff;
-  border-radius: var(--button-radious);
+.PopOpen {
+  background-color: pink;
+  color: black;
+}
+
+
+/* =============================== Delete ===================== */
+
+.delete-notes {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: pink;
+  width: 300px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 3px rgb(255, 3, 3);
+  display: none;
+}
+
+.delete1,
+.delete3 {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-items: center;
+  gap: 5px;
+}
+
+.delBtn{
+  padding: 3px 7px;
+  font-size: 13px;
+}
+
+.delete1 h3 {
+  font-size: 16px;
+}
+
+.delete2 p {
+  font-size: 13px;
+}
+
+.delete2 {
+  padding: 12px 16px;
+}
+
+.deletebtns {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.displayblock {
+  display: block;
+}
+
+.crossbtn {
+  font-size: 16px;
+  padding: 6px;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.delet-btn:hover {
-  color: black;
-  background-color: white;
+@media only screen and (max-width:600px) {
+
+  :root {
+    --button-padding: 4px 8px;
+    --fontSizeButton: 12px;
+  }
+
+  .dashboard-header {
+    padding: 8px 10px;
+  }
+
+  .dashboard-header :nth-child(2) {
+    padding: 3px 6px;
+  }
+
+  .dashboard-bottom,
+  .create-bottom,
+  .update-bottom {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 21px;
+  }
+
+  .btn {
+    font-size: var(--fontSizeButton);
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+
+  .card-data {
+    width: 100%;
+    height: 180px;
+  }
+
+  .card-data p,
+  h4 {
+    font-size: var(--fontSizeButton);
+  }
+
 }

@@ -10,8 +10,31 @@
 </head>
 
 <body>
-  <div class="update-container">
+  <div class="update-container updateJi">
     <%- include("./partials/header.ejs") %>
+
+      <div class="delete-notes">
+        <div class="delete1">
+          <h3>You are About to delete a note</h3>
+          <button class="crossbtn">X</button>
+        </div>
+        <hr>
+        <div class="delete2">
+          <p>This will delete your note
+            <b>
+              '<%= element?.title%>'
+            </b>
+          </p>
+          <p>Are you sure?</p>
+        </div>
+        <hr>
+        <div class="delete3 deletebtns">
+          <button class="btn delBtn" id="closeBtn">Close</button>
+          <form method="post" action="/delete<%= element?._id%>?_method=delete">
+            <button class="btn delBtn">Delete Note</button>
+          </form>
+        </div>
+      </div>
       <div class="update-bottom">
         <div class="update1">
           <a href="/dashboard">dashboard</a> /
@@ -19,15 +42,39 @@
         </div>
         <div class="update2">
           <h3>View Note</h3>
-          <button class="delet-btn">delete</button>
+          <button class="btn PopOpen">delete</button>
         </div>
-        <div class="update3">
-          <input type="text" name="title" placeholder="Title ...">
-          <textarea name="description" placeholder="Take a note ...." cols="30" rows="10"></textarea>
-        </div>
-        <button class="btn new-note-button">+ Update</button>
+        <form method="POST" action="/update<%= element?._id%>?_method=put">
+          <div class="update3">
+            <input type="text" name="title" value="<%= element?.title %>" placeholder="Title ...">
+            <textarea name="des" placeholder="Take a note ...." cols="30" rows="15"><%= element?.des %></textarea>
+          </div>
+          <button class="btn new-note-button">+ Update</button>
+        </form>
       </div>
   </div>
+
+  <script>
+    let closeBtn = document.querySelector("#closeBtn")
+    let crossbtn = document.querySelector(".crossbtn")
+    let PopOpen = document.querySelector(".PopOpen")
+    let deleteBox = document.querySelector(".delete-notes");
+
+    const PoPo = () => {
+      if (PopOpen.innerHTML === "delete") {
+        deleteBox.classList.add("displayblock")
+      }
+    }
+    const PoPc = () => {
+      if (closeBtn.innerHTML === "Close" || crossbtn.innerHTML === "X") {
+        deleteBox.classList.remove("displayblock")
+      }
+    }
+
+    closeBtn.addEventListener("click", PoPc)
+    crossbtn.addEventListener("click", PoPc)
+    PopOpen.addEventListener("click", PoPo)
+  </script>
 </body>
 
 </html>

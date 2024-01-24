@@ -10,8 +10,11 @@
 
 <body>
   <div class="create-container">
+
     <%- include("./partials/header.ejs") %>
+
       <div class="create-bottom">
+
         <div class="create1">
           <a href="/dashboard">DashBoard</a> /
           <span>Add Note</span>
@@ -19,12 +22,16 @@
 
         <h3 class="create2">Add Note</h3>
 
-        <div class="create3">
-          <input type="text" name="title" placeholder="Title ...">
-          <textarea name="description" placeholder="Take a note ...." cols="30" rows="10"></textarea>
-        </div>
-        <button class="btn new-note-button">+ Add Note</button>
+        <form method="post" action="/create">
+          <div class="create3">
+            <input type="text" name="title" placeholder="Title ..." required>
+            <textarea name="des" placeholder="Take a note ...." cols="30" rows="15" required></textarea>
+          </div>
+          <button class="btn new-note-button">+ Add Note</button>
+        </form>
+
       </div>
+
   </div>
 </body>
 

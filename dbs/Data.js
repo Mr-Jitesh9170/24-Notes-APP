@@ -1,60 +1,57 @@
- let NotesData = [
-  {
-    title: "In this tutorial, we are going to create a simple, accessible and responsive navigation menu bar and side menu using TailwindCSS v3.0 and Alpine.js. For those of you who would prefer a Video Tutorial you can watch it here.",
-    description: "Let's look into JS animations",
-  },
-  {
-    title: "Create Responsive Side Navigation using TailwindCSS and AlpineJs",
-    description: "Let's look into JS animations",
-  },
-  {
-    title: "JavaScript Animations",
-    description: "JavaScript Animations are pretty cool.",
-  },
-  {
-    title: "JavaScript Async Await",
-    description: "In this short tutorial, I will re-use some of the code I wrote for a YouTube tutorial creating an Apex Legend-inspired menu. I will make a simple function that fetches data from a dummy API and display some of it on the page.",
-  },
-  {
-    title: "How To Use DOTENV",
-    description: "Node.js runs on the V8 JavaScript Engine and executes JavaScript code outside a web browser.",
-  },
-  {
-    title: "MongoDB Tutorial",
-    description: "Node.js is an open-source server environment. Node.js is cross-platform and runs on Windows Linux Unix and macOS. Node.js is a back-end JavaScript runtime environment. Node.js runs on the V8 JavaScript Engine and executes JavaScript code outside a web browser.",
-  },
-  {
-    title: "Learn Morgan",
-    description: "Morgan is a Node.js middleware to log HTTP requests. Monitoring and reading logs can help you better understand how your application behaves.",
-  },
-  {
-    title: "Build a React Portfolio with TailwindCSS",
-    description: "Learn how to add TailwindCSS to your React project and build a portfolio with Tailwind's grid layouts, typography, and responsive design.",
-  },
-  {
-    title: "How to configure ESLint for a Node.Js Project",
-    description: "When you work in a team or a slightly larger project its important to have a consistent style across all files. With this guide, you'll be able to set up auto linting focused on Node.Js projects using the AirBnB style guide.",
-  },
-  {
-    title: "React A JavaScript library for building user interfaces",
-    description: "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.",
-  },
-  {
-    title: "Angular is awesome",
-    description: "Angular is a platform for building mobile and desktop web applications. Join the community of millions of developers who build compelling user interfaces ...",
-  },
-  {
-    title: "Vue.js - The Progressive JavaScript Framework",
-    description: "Vue.js is an open-source model view viewmodel front end JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members.",
-  },
-  {
-    title: "Build fast, responsive sites with Bootstrap",
-    description: "Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.",
+const mongoose = require("mongoose")
+const mongodb = async () => {
+  try {
+    await mongoose.connect("mongodb://127.0.0.1:27017/Note" )
+    console.log("conection successfull")
+  } catch (error) {
+    console.log(error)
   }
-]
+}
+
+// created schema =>
+let Schema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  des: {
+    type: String,
+    required: true
+  },
+})
+
+// dummy data =>
+
+// let NotesData = [
+//   {
+//     title: "About Yourself",
+//     des: "My name is Jitesh Pandey"
+//   },
+//   {
+//     title: "what you do",
+//     des: "I am an Software Engineer"
+//   }
+// ]
+
+// model =>
+let note = mongoose.model("note", Schema);
+
+
+// Data inserted =>
+
+// const InsertData = async () => {
+//   try {
+//     await note.insertMany(NotesData)
+//     console.log("data inserted")
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
+// InsertData();
 
 
 
- 
 
-module.exports = NotesData;
+
+module.exports = { note, mongodb };
