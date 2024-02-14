@@ -1,57 +1,34 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const mongodb = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/Note" )
-    console.log("conection successfull")
+    let username = process.env.USER_NAME;
+    let password = process.env.PASSWORD;
+    let clusterURL = process.env.CLUSTER_URL;
+    let databaseName = process.env.DATABASE_NAME;
+    let URL = `mongodb+srv://${username}:${encodeURIComponent(password)}@${clusterURL}/${databaseName}?retryWrites=true&w=majority`;
+    await mongoose.connect(URL);
+    console.log("connection successful !!");
   } catch (error) {
-    console.log(error)
+    console.log("no connection ->  ", error);
   }
-}
+};
 
-// created schema =>
+// Schema
 let Schema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   des: {
     type: String,
-    required: true
+    required: true,
   },
-})
+});
 
-// dummy data =>
-
-// let NotesData = [
-//   {
-//     title: "About Yourself",
-//     des: "My name is Jitesh Pandey"
-//   },
-//   {
-//     title: "what you do",
-//     des: "I am an Software Engineer"
-//   }
-// ]
-
-// model =>
+// Model
 let note = mongoose.model("note", Schema);
-
-
-// Data inserted =>
-
-// const InsertData = async () => {
-//   try {
-//     await note.insertMany(NotesData)
-//     console.log("data inserted")
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-
-// InsertData();
-
-
-
-
 
 module.exports = { note, mongodb };

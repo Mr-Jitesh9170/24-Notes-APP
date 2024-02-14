@@ -1,9 +1,13 @@
 const express = require("express");
-const app = express();
 let db = require("./dbs/Data");
-const methodOverride = require("method-override")
+const methodOverride = require("method-override");
+const dotenv = require("dotenv");
+dotenv.config();
+
 // database connections =>
 db.mongodb();
+
+const app = express();
 
 // middlewares =>
 app.use(express.static("public"));
@@ -18,7 +22,8 @@ app.get("/login", async (req, res) => {
 })
 
 app.post("/login", (req, res) => {
-  console.log("login data -> ", req.body)
+  let data = req.body;
+  console.log("login data -> ", data)
 })
 
 app.get("/dashboard", async (req, res) => {
@@ -81,6 +86,6 @@ app.delete("/delete:id", async (req, res) => {
 })
 
 // port =>
-app.listen(3000, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log("Server is live on -> ", 3000);
 });
