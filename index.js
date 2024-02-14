@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 let db = require("./dbs/Data");
 const methodOverride = require("method-override")
- // database connections =>
+// database connections =>
 db.mongodb();
 
 // middlewares =>
@@ -13,6 +13,14 @@ app.use(express.json());
 app.use(methodOverride("_method"))
 
 // routers =>
+app.get("/login", async (req, res) => {
+  res.render("login.ejs");
+})
+
+app.post("/login", (req, res) => {
+  console.log("login data -> ", req.body)
+})
+
 app.get("/dashboard", async (req, res) => {
   try {
     let NotesData = await db.note.find();
@@ -41,7 +49,6 @@ app.get("/update:id", async (req, res) => {
 })
 
 
-// ---------
 app.post("/create", async (req, res) => {
   try {
     let insertData = await req.body;
@@ -72,7 +79,7 @@ app.delete("/delete:id", async (req, res) => {
     console.log(error)
   }
 })
- 
+
 // port =>
 app.listen(3000, () => {
   console.log("Server is live on -> ", 3000);
