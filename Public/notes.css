@@ -219,7 +219,7 @@ textarea {
 }
 
 .login-container {
-  background-color: yellow;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   padding: 20px 25px;
