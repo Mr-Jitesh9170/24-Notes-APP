@@ -10,7 +10,7 @@ const app = express();
 // middlewares =>
 app.use(express.static("public"));
 app.set("views engine", "ejs");
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true })) 
 app.use(express.json());
 app.use(methodOverride("_method"))
 

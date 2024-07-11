@@ -22,7 +22,7 @@ exports.createPostControllers = async (req, res) => {
   try {
     let insertData = await req.body;
     await NotesCollections.create(insertData);
-    res.redirect("/");
+    res.redirect("/dashboard");
   } catch (error) {
     console.log(error)
   }
@@ -49,7 +49,7 @@ exports.putUpdateControllers = async (req, res) => {
   try {
     let { id } = req.params;
     await NotesCollections.updateOne({ _id: id }, req.body)
-    res.redirect("/")
+    res.redirect("/dashboard")
   } catch (error) {
     console.log(error)
   }
@@ -60,7 +60,7 @@ exports.deletePageControllers = async (req, res) => {
   try {
     let { id } = req.params;
     await NotesCollections.deleteOne({ _id: id })
-    res.redirect("/")
+    res.redirect("/dashboard")
   } catch (error) {
     console.log(error)
   }
