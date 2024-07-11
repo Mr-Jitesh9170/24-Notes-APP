@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-   font-family: "poppins", sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 :root {
@@ -17,6 +17,7 @@
 .create-container,
 .update-container {
   position: relative;
+  width: 100vw;
   min-height: 100vh;
   background-color: var(--background);
 }
@@ -140,6 +141,7 @@ textarea {
   padding: 8px 10px;
   outline: none;
   border: none;
+  resize: none;
 }
 
 /* =============================== Update ===================== */
@@ -232,18 +234,7 @@ textarea {
   outline: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+ /* Media quereis => */
 @media only screen and (max-width:600px) {
 
   :root {
@@ -278,7 +269,7 @@ textarea {
   }
 
   .card-data {
-    width: 100%;
+    width: 93.5%;
     height: 180px;
   }
 
