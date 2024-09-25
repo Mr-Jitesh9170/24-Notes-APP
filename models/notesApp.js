@@ -10,7 +10,7 @@ let notesSchema = new Schema({
   des: {
     type: String,
     required: true,
-  },
+  }, 
 });
 
 

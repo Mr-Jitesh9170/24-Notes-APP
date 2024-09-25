@@ -20,6 +20,6 @@ app.use(require("./routes/notesRoutes.js"))
 app.use(require("./routes/authRoutes.js"))
 
 // port =>
-app.listen(8080, () => {
-  console.log("Server is live on -> ", 8080);
+app.listen(6565, () => {
+  console.log("Server is live on -> ", 6565);
 });
